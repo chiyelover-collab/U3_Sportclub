@@ -7,20 +7,25 @@ import AdminDashboard from "../pages/admin/AdminDashboard"
 import UserLayout from "../layouts/UserLayout"
 import CoachLayout from "../layouts/CoachLayout"
 import AdminLayout from "../layouts/AdminLayout"
+import ProtectedRoute from "./ProtectedRoutes"
+import Register from "../pages/Register"
+import ExitoRegister from "../pages/Exito_Register"
 function AppRoutes() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/user" element={<UserLayout />}>
-                    <Route path="dashboard" element={<UserDashboard />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/exito-register" element={<ExitoRegister />} />
+                <Route element={<ProtectedRoute rolPermitido="user" />}>
+                    <Route path="/user/dashboard" element={<UserDashboard />} />
                 </Route>
-                <Route path="/coach" element={<CoachLayout />}>
-                    <Route path="dashboard" element={<CoachDashboard />} />
+                <Route element={<ProtectedRoute rolPermitido="coach" />}>
+                    <Route path="/coach/dashboard" element={<CoachDashboard />} />
                 </Route>
-                <Route path="/admin" element={<AdminLayout />}>
-                    <Route path="dashboard" element={<AdminDashboard />} />
+                <Route element={<ProtectedRoute rolPermitido="admin" />}>
+                    <Route path="/admin/dashboard" element={<AdminDashboard />} />
                 </Route>
             </Routes>
         </BrowserRouter>
