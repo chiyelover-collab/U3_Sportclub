@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import '../assets/css/Login.css'; // Tus colores personalizados
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap para estilos rápidos
 import logoEmpresa from '../assets/imagenes/logo_empresa_letra_v1.png'; // Asegúrate de que la ruta sea correcta
+import AuthServices from '../services/AuthServices'; 
 
 const Login = () => {
     // Estados para guardar lo que el usuario escribe
@@ -22,13 +23,8 @@ const Login = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:3000/api/auth/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: correo, password: clave })
-            });
-
-            const reply = await response.json();
+            const response = await AuthServices.login(correo, clave);
+            const reply = response.data;
 
             if (response.ok) {
                 const token = reply.token || (reply.data && reply.data.token);
@@ -41,7 +37,7 @@ const Login = () => {
                     localStorage.setItem("user", JSON.stringify(reply.data.user));
                     const rol = reply.data.user.role.toLowerCase().trim();
 
-                    // Redirección segura
+                    
                     if (rol === "admin") {
                         navigate("/admin/dashboard");
                     } else if (rol === "coach") {

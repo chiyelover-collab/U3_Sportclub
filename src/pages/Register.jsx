@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import logoEmpresa from '../assets/imagenes/logo_empresa_letra_v1.png'; 
 import '../assets/css/Login.css'; 
+import AuthServices from '../services/AuthServices';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -97,28 +98,24 @@ const Register = () => {
         // Si la validación pasa, procedemos a llamar a tu API
         if (validarFormulario()) {
             try {
-                const response = await fetch('http://localhost:3000/api/auth/register', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        email: formData.email,
-                        password: formData.contrasena,
-                        full_name: formData.nombre,
-                        birth_date: formData.edad,
-                        metadata: {
-                            nivel: formData.nivel || null,
-                            deporte: formData.deporte,
-                            objetivo: formData.objetivo
+                const userData = {
+                    email: formData.email,
+                    password: formData.contrasena,
+                    full_name: formData.nombre,
+                    birth_date: formData.edad,
+                    metadata: {
+                        nivel: formData.nivel || null,
+                        deporte: formData.deporte,
+                        objetivo: formData.objetivo
                         }
-                    })
-                });
+                    };
+
+                    const response = await AuthServices.register(userData);
 
                 if (response.ok) {
-                    // Si todo sale bien, redirigimos a donde desees (ej: al login)
                     navigate("/exito-register");
                 } else {
                     const reply = await response.json();
-                    // Guardamos el error general del servidor para mostrarlo en pantalla
                     setErrores({ global: reply.mensaje || "Error en el servidor" });
                 }
             } catch (error) {
