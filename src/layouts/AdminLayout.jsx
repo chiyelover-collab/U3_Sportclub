@@ -1,11 +1,9 @@
 import { Link, Outlet } from "react-router-dom"
+import Navbar_Admin from "../components/admin/NavbarAdmin.jsx";
 function AdminLayout() {
     return (
         <div>
-            <nav>
-                <Link to="/">Inicio</Link> |
-                <Link to="/admin/dashboard">Dashboard Admin</Link>
-            </nav>
+            <Navbar_Admin />
             <main>
                 <Outlet />
             </main>

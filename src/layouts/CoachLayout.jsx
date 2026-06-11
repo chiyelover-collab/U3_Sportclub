@@ -1,11 +1,9 @@
 import { Link, Outlet } from "react-router-dom"
+import Navbar_Coach from "../components/NavbarCoach.jsx";
 function CoachLayout() {
     return (
         <div>
-            <nav>
-                <Link to="/">Inicio</Link> |
-                <Link to="/coach/dashboard">Dashboard Coach</Link>
-            </nav>
+            <Navbar_Coach />
             <main>
                 <Outlet />
             </main>

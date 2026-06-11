@@ -1,6 +1,5 @@
 // src/pages/UserDashboard.jsx
 import React, { useEffect, useState } from 'react';
-import Navbar from '../../components/Navbar_Usuario.jsx';
 import '../../assets/css/Dashboard_Usuario.css'; 
 
 const UserDashboard = () => {
@@ -22,9 +21,7 @@ const UserDashboard = () => {
     }, []);
 
     return (
-        <div>
-            <Navbar />
-            
+        <div> 
             <main className="container-fluid">
                 <section className="row mx-auto my-4">
                     <div className="col-12 text-center">

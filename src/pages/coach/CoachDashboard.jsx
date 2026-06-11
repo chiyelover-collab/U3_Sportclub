@@ -1,6 +1,5 @@
 // src/pages/coach/CoachDashboard.jsx
 import React, { useEffect, useState } from 'react';
-import Navbar_Coach from '../../components/NavbarCoach.jsx';
 import '../../assets/css/DashboardCoach.css'; 
 
 const CoachDashboard = () => {
@@ -24,7 +23,6 @@ const CoachDashboard = () => {
 
     return (
         <div>
-            <Navbar_Coach />
             
             <main className="container-fluid">
                 <section className="row mx-auto my-4">
