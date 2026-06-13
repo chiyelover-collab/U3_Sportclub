@@ -3,7 +3,7 @@ import NavbarUsuario from "../components/NavbarUsuario.jsx";
 function UserLayout() {
     return (
         <div>
-            <Navbar_Usuario />
+            <NavbarUsuario />
             <main>
                 <Outlet />
             </main>

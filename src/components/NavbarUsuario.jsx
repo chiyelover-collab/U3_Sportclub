@@ -14,7 +14,7 @@ const Navbar = () => {
 
     return (
         <>
-            <header className="class_header container-fluid">
+            <header className="user_header container-fluid">
                 <div className="class_div_logo row align-items-center">
                     <div className="col-md-4">
                         <img src={logo} alt="logo" className="class_logo class_img_logo" />
@@ -25,7 +25,7 @@ const Navbar = () => {
                 </div>
             </header>
 
-            <nav className="navbar navbar-expand-lg class_navbar navbar-dark">
+            <nav className="navbar navbar-expand-lg user_navbar navbar-dark">
                 <div className="container-fluid">
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDashboardUser">
                         <span className="navbar-toggler-icon"></span>

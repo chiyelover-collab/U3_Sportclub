@@ -15,7 +15,7 @@ const Navbar_Coach = () => {
     return (
         <>
             {/* Header con el truco de 3 columnas para un centrado perfecto */}
-            <header className="class_header container-fluid py-2">
+            <header className="coach_header container-fluid py-2">
                 <div className="class_div_logo row align-items-center">
                     <div className="col-4 text-start">
                         <img src={logo} alt="logo" className="class_logo class_img_logo" />
@@ -28,7 +28,7 @@ const Navbar_Coach = () => {
             </header>
 
             {/* Barra de Navegación del Coach */}
-            <nav className="navbar navbar-expand-lg class_navbar navbar-dark">
+            <nav className="navbar navbar-expand-lg coach_navbar navbar-dark">
                 <div className="container-fluid">
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDashboardCoach">
                         <span className="navbar-toggler-icon"></span>

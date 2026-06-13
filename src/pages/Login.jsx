@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import '../assets/css/Login.css'; // Tus colores personalizados
-import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap para estilos rápidos
+import '../assets/css/Login.css'; 
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 import logoEmpresa from '../assets/imagenes/logo_empresa_letra_v1.png'; // Asegúrate de que la ruta sea correcta
 import AuthServices from '../services/AuthServices'; 
 
