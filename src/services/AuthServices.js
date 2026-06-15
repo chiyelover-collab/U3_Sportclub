@@ -1,6 +1,6 @@
 const API_URL = 'http://localhost:3000/api/auth';
 
-// 1. Función de Login 
+
 const login = async (email, password) => {
     const response = await fetch(`${API_URL}/login`, {
         method: 'POST',

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../assets/css/DashboardCoach.css';
-
-// Importa tus imágenes aquí (ajusta las rutas según tu carpeta real de assets)
 import logoEmpresa from '../../assets/imagenes/logo_empresa_letra_v1.png';
 import imgXueMeng from '../../assets/imagenes/Xue.Meng.600.4090440.jpg';
 import imgShiMei from '../../assets/imagenes/shi mei.jpg';
@@ -14,16 +12,14 @@ const CoachDashboard = () => {
     const [coachName, setCoachName] = useState("Cargando...");
 
     useEffect(() => {
-        // Esta lógica reemplaza tu archivo dashboard.js
         const datosUsuario = localStorage.getItem('user');
         if (datosUsuario) {
             const usuario = JSON.parse(datosUsuario);
             setCoachName(usuario.full_name || "Entrenador Hanxue");
         } else {
-            setCoachName("Entrenador Hanxue"); // Fallback si no hay sesión
+            setCoachName("Entrenador Hanxue"); 
         }
 
-        // Aplica el color de fondo lila a toda la pantalla
         document.body.className = "coach_body";
         return () => { document.body.className = ""; };
     }, []);
@@ -35,17 +31,14 @@ const CoachDashboard = () => {
 
     return (
         <div className="coach_body">
-            {/* MAIN CONTENT */}
             <main className="container pb-5">
                 <section className="row">
-                    {/* Ajuste de columnas para que el nombre no se rompa */}
                     <div className="col-12 col-md-6 mx-auto text-center">
                         <h5 className="class_h4 coach_title2" id="mensajeBienvenida"> ¡Bienvenido, {coachName}! </h5>
                     </div>
                 </section>
                 
                 <section className="row justify-content-center">
-                    {/* COLUMNA ALUMNOS */}
                     <div className="col-12 col-md-6 col-xl-5 mb-4">
                         <article className="card coach_card1 mx-auto">
                             <div className="card-header coach_card_header" style={{ textAlign: 'center' }}>
@@ -98,7 +91,6 @@ const CoachDashboard = () => {
                         </article>
                     </div>
 
-                    {/* COLUMNA HORARIO */}
                     <div className="col-12 col-md-6 col-lg-7">
                         <article className="card coach_card2 mx-auto">
                             <div className="card-header coach_card_header" style={{ textAlign: 'center' }}>

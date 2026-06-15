@@ -27,7 +27,6 @@ const UserDashboard = () => {
 
     return (
         <div className="user_body">
-            {/* CUERPO DEL DASHBOARD (Sin el header ni navbar duplicados) */}
             <main className="container-fluid mb-5 pt-4">
                 <section className="row mx-auto mb-4">
                     <div className="col-12 col-md-6 mx-auto text-center">
@@ -36,7 +35,6 @@ const UserDashboard = () => {
                 </section>
                 
                 <section className="row align-items-start">
-                    {/* COLUMNA IZQUIERDA: PERFIL */}
                     <div className="col-12 col-md-4 col-xxl-4 mb-4 mb-md-0">
                         <article className="card user_card1 mx-auto">
                             <div className="card-header user_card_header" style={{ textAlign: 'center' }}>
@@ -61,7 +59,6 @@ const UserDashboard = () => {
                         </article>
                     </div>
                     
-                    {/* COLUMNA DERECHA: SECCIONES */}
                     <div className="col-12 col-md-8 col-xxl-8">
                         <section className="row">
                             <div className="col-12 col-md-6 col-xxl-6 mb-4 mb-md-0">

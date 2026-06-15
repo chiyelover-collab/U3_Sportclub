@@ -8,7 +8,7 @@ export const getCurrentUser = () => {
 
         const usuario = JSON.parse(sessionData);
 
-        // Retornamos los datos limpios y seguros, manejando los posibles nulos
+
         return {
             full_name: usuario.full_name || "Usuario",
             email: usuario.email || "sin-correo@correo.com",

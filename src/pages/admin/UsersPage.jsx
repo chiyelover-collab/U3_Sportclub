@@ -3,8 +3,6 @@ import { Container, Row, Col, Card, Table, Button, Badge, Spinner, InputGroup, F
 import Swal from 'sweetalert2';
 import UserFormModal from '../../components/admin/UserFormModal';
 import { getUsers, createUser, updateUser, deleteUser } from '../../services/AdminServices';
-
-// Importamos tus estilos personalizados
 import '../../assets/css/DashboardAdmin.css'; 
 
 const UsersPage = () => {
@@ -13,11 +11,9 @@ const UsersPage = () => {
     const [loading, setLoading] = useState(true);
     const [busqueda, setBusqueda] = useState("");
 
-    // Estados para controlar el Modal
     const [showModal, setShowModal] = useState(false);
     const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(null);
 
-    // 1. Cargar usuarios desde el backend
     const cargarUsuarios = async () => {
         try {
             setLoading(true);
@@ -32,14 +28,12 @@ const UsersPage = () => {
         }
     };
 
-    // Cargar al iniciar la página
     useEffect(() => {
         cargarUsuarios();
         document.body.className = "class_body";
         return () => { document.body.className = ""; };
     }, []);
 
-    // 2. Lógica del Buscador en tiempo real
     const handleBuscar = (e) => {
         const termino = e.target.value.toLowerCase();
         setBusqueda(termino);
@@ -51,7 +45,6 @@ const UsersPage = () => {
         setUsuariosFiltrados(filtrados);
     };
 
-    // 3. Controladores del Modal
     const abrirModalCrear = () => {
         setUsuarioSeleccionado(null);
         setShowModal(true);
@@ -67,7 +60,6 @@ const UsersPage = () => {
         setUsuarioSeleccionado(null);
     };
 
-    // 4. Guardar (Crear o Editar)
     const handleGuardar = async (formData) => {
         try {
             if (usuarioSeleccionado) {
@@ -84,7 +76,6 @@ const UsersPage = () => {
         }
     };
 
-    // 5. Eliminar con SweetAlert2
     const handleEliminar = async (id, nombre) => {
         const confirmacion = await Swal.fire({
             title: '¿Eliminar usuario?',
@@ -117,7 +108,6 @@ const UsersPage = () => {
 
     return (
         <Container as="main" className="my-4">
-            {/* Barra de Búsqueda y Botón Nuevo */}
             <Row className="mb-4 align-items-center">
                 <Col md={8}>
                     <InputGroup>
@@ -139,7 +129,6 @@ const UsersPage = () => {
                 </Col>
             </Row>
 
-            {/* Tabla de Usuarios con Scroll */}
             <Row className="mb-4">
                 <Col xs={12}>
                     <Card as="article" className="class_card1 w-100" style={{ maxWidth: '100%' }}>
@@ -216,7 +205,6 @@ const UsersPage = () => {
                 </Col>
             </Row>
 
-            {/* SECCIÓN NUEVA: Card de Instrucciones de Uso (Abajo de la lista) */}
             <Row className="mb-5">
                 <Col xs={12}>
                     <Card as="aside" className="class_card1 w-100" style={{ maxWidth: '100%' }}>
@@ -245,7 +233,7 @@ const UsersPage = () => {
                 </Col>
             </Row>
 
-            {/* Modal para Crear/Editar */}
+
             <UserFormModal 
                 show={showModal} 
                 handleClose={cerrarModal} 

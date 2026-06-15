@@ -2,21 +2,18 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import '../assets/css/Login.css'; 
 import 'bootstrap/dist/css/bootstrap.min.css'; 
-import logoEmpresa from '../assets/imagenes/logo_empresa_letra_v1.png'; // Asegúrate de que la ruta sea correcta
+import logoEmpresa from '../assets/imagenes/logo_empresa_letra_v1.png'; 
 import AuthServices from '../services/AuthServices'; 
 
 const Login = () => {
-    // Estados para guardar lo que el usuario escribe
     const [correo, setCorreo] = useState('');
     const [clave, setClave] = useState('');
     const [mensajeError, setMensajeError] = useState('');
 
     const navigate = useNavigate();
 
-    // Lógica para enviar los datos a tu backend
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Evita que la página recargue
-
+        e.preventDefault(); 
         if (correo === "" || clave === "") {
             setMensajeError("Por favor, completa todos los campos");
             return;
@@ -55,7 +52,7 @@ const Login = () => {
         }
     };
 
-    // La interfaz con clases de Bootstrap
+
     return (
         <div className="d-flex justify-content-center align-items-center vh-100 bg-lightsteelblue">
             <div className="card shadow-lg p-4 custom-card" style={{ width: '350px', borderRadius: '20px' }}>

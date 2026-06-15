@@ -18,26 +18,20 @@ const AdminDashboard = () => {
 
     return (
         <Container as="main" fluid className="px-4">
-            {/* SECCIÓN DE BIENVENIDA */}
             <Row as="section" className="my-4">
                 <Col className="col-12 text-center">
                     <h4 className="class_h4" id="mensajeBienvenida"> ¡Bienvenido, {nombreUsuario}! </h4>
                 </Col>
             </Row>
 
-            {/* SECCIÓN DE LAS 3 COLUMNAS CENTRALES */}
             <Row as="section">
                 
-            {/* COLUMNA 1: ALERTAS Y APROBACIONES */}
             <Col xs={12} md={4} xxl={4} className="mb-4">
                 <Card as="article" className="class_card1 h-100 shadow-sm">
                     <Card.Header className="class_card_header text-center">
                         <h5 className="class_h5 mb-0"> Alertas y Aprobaciones </h5>
                     </Card.Header>
-                    {/* El contenedor del cuerpo de la tarjeta mantiene el scroll */}
                     <Card.Body className="d-flex flex-column p-0 pt-3">
-                        
-                        {/* AQUÍ COMIENZA EL BLOQUE NUEVO */}
                         <div className="table-responsive px-3" style={{ maxHeight: '380px', overflowY: 'auto' }}>
                             <Table bordered responsive className="text-center align-middle mb-0">
                                 <thead className="class_table_header" style={{ position: 'sticky', top: 0, zIndex: 1 }}>
@@ -99,7 +93,6 @@ const AdminDashboard = () => {
                 </Card>
             </Col>
 
-                {/* COLUMNA 2: ESTADÍSTICAS MENSUALES */}
                 <Col xs={12} md={4} xxl={4} className="mb-4">
                     <Card as="article" className="class_card1 h-100 shadow-sm">
                         <Card.Header className="class_card_header text-center">
@@ -150,7 +143,6 @@ const AdminDashboard = () => {
                     </Card>
                 </Col>
 
-                {/* COLUMNA 3: CLASES DEL DÍA */}
                 <Col xs={12} md={4} xxl={4} className="mb-4">
                     <Card as="article" className="class_card1 h-100 shadow-sm">
                         <Card.Header className="class_card_header text-center">
