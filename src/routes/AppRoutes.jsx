@@ -17,6 +17,7 @@ import AdminDashboard from "../pages/admin/AdminDashboard"
 
 import ProtectedRoute from "./ProtectedRoutes"
 import UsersPage from "../pages/admin/UsersPage.jsx";
+import SportsManagement from "../pages/admin/SportManagment.jsx";
 
 function AppRoutes() {
     return (
@@ -44,6 +45,7 @@ function AppRoutes() {
                     <Route path="/admin" element={<AdminLayout />}>
                         <Route path="dashboard" element={<AdminDashboard />} />
                         <Route path="gestion" element={<UsersPage />} />
+                        <Route path = "deportes" element ={<SportsManagement />} />
                     </Route>
                 </Route>
 

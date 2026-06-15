@@ -8,17 +8,22 @@ const NavbarAdmin = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    // Variables dinámicas para el texto del header
+
     let tituloHeader = "Dashboard Administrador";
     let subtituloHeader = "Bienvenido al panel de control.";
 
-    // Si estamos en la sección de gestión, cambiamos los textos de forma dinámica
+
     if (location.pathname.includes('/admin/gestion')) {
         tituloHeader = "Gestión de Usuarios";
         subtituloHeader = "Administra los usuarios en sistema.";
     }
 
-    // Lógica para limpiar la sesión al hacer clic en Cerrar Sesión
+        if (location.pathname.includes('/admin/deportes')) {
+        tituloHeader = "Gestión de Deportes";
+        subtituloHeader = "Administra los deportes en el sistema.";
+    }
+
+
     const handleCerrarSesion = () => {
         localStorage.clear(); 
         navigate('/login');
@@ -60,7 +65,7 @@ const NavbarAdmin = () => {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link class_a1" to="#">Reportes</Link>
+                                <Link className="nav-link class_a1" to="/admin/deportes">Deportes</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link class_a1" to="#">Configuración</Link>
