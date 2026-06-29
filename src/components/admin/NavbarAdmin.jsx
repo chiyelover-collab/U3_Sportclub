@@ -68,6 +68,9 @@ const NavbarAdmin = () => {
                                 <Link className="nav-link class_a1" to="/admin/deportes">Deportes</Link>
                             </li>
                             <li className="nav-item">
+                                <Link className="nav-link class_a1" to="/admin/salas">Salas</Link>
+                            </li>
+                            <li className="nav-item">
                                 <Link className="nav-link class_a1" to="#">Configuración</Link>
                             </li>
                         </ul>

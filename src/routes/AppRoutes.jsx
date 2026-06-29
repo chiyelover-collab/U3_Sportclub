@@ -3,7 +3,7 @@ import Home from "../pages/Home"
 import Login from "../pages/Login"
 import Register from "../pages/Register"
 import ExitoRegister from "../pages/Exito_Register"
-
+import RoomsPage from "../pages/admin/RoomsPage.jsx";
 
 import UserLayout from "../layouts/UserLayout"
 import CoachLayout from "../layouts/CoachLayout"
@@ -46,6 +46,7 @@ function AppRoutes() {
                         <Route path="dashboard" element={<AdminDashboard />} />
                         <Route path="gestion" element={<UsersPage />} />
                         <Route path = "deportes" element ={<SportsManagement />} />
+                        <Route path="salas" element={<RoomsPage />} />
                     </Route>
                 </Route>
 

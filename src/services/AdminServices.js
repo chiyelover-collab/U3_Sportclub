@@ -1,7 +1,6 @@
-
 const API_URL = "http://localhost:3000/api/users"; 
-const SPORTS_API_URL = "http://localhost:3000/api/sport";
-
+const SPORTS_API_URL = "http://localhost:3000/api/sports";
+const ROOMS_API_URL = "http://localhost:3000/api/rooms"
 
 function getToken() {
     return localStorage.getItem("token");
@@ -115,6 +114,54 @@ export async function deleteSports(id) {
     
     if (!response.ok) {
         throw new Error("Error al eliminar deporte");
+    }
+    return true;
+}
+
+export async function getRooms() {
+    const response = await fetch(ROOMS_API_URL, {
+        method: "GET",
+        headers: getHeaders(),
+    });
+    if (!response.ok) {
+        throw new Error("Error al obtener la lista de salas");
+    }
+    return response.json();
+}
+
+export async function createRoom(roomData) {
+    const response = await fetch(ROOMS_API_URL, {
+        method: "POST",
+        headers: getHeaders(),
+        body: JSON.stringify(roomData),
+    });
+    const data = await response.json();
+    if (!response.ok) {
+        throw new Error(data.message || "Error al crear sala");
+    }
+    return data;
+}
+
+export async function updateRoom(id, roomData) {
+    const response = await fetch(`${ROOMS_API_URL}/${id}`, {
+        method: "PUT",
+        headers: getHeaders(),
+        body: JSON.stringify(roomData),
+    });
+    const data = await response.json();
+    if (!response.ok) {
+        throw new Error(data.message || "Error al actualizar sala");
+    }
+    return data;
+}
+
+export async function deleteRoom(id) {
+    const response = await fetch(`${ROOMS_API_URL}/${id}`, {
+        method: "DELETE",
+        headers: getHeaders(),
+    });
+    if (!response.ok) {
+        throw new Error("Error al eliminar sala");
     }
     return true;
 }
