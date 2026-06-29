@@ -22,9 +22,51 @@ const register = async (userData) => {
     return { ok: response.ok, data: data};
 };
 
+
+function getHeaders() {
+    return {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+    };
+}
+export async function getPerfil() {
+    const response = await fetch(`${API_URL}/me`, {
+        method: 'GET',
+        headers: getHeaders()
+    });
+    if (!response.ok) throw new Error("Error al obtener perfil");
+    return await response.json();
+}
+
+export async function updatePerfil(datos) {
+    const response = await fetch(`${API_URL}/me`, {
+        method: 'PUT',
+        headers: getHeaders(),
+        body: JSON.stringify(datos)
+    });
+    if (!response.ok) throw new Error("Error al guardar cambios");
+    return await response.json();
+}
+
+export async function updatePassword(passwordData) {
+    const response = await fetch(`${API_URL}/me/password`, {
+        method: 'PUT',
+        headers: getHeaders(),
+        body: JSON.stringify(passwordData)
+    });
+    if (!response.ok) {
+        const err = await response.json();
+        throw new Error(err.mensaje || "Contraseña actual incorrecta");
+    }
+    return true;
+}
+
 const AuthServices = {
     login,
-    register
+    register,
+    getPerfil,
+    updatePerfil,
+    updatePassword
 };
 
 export default AuthServices;

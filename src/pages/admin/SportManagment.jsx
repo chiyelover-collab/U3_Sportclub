@@ -214,7 +214,6 @@ const SportManagment = () => {
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            {/* Contenedor Flexbox para alinear horizontalmente */}
                                                             <div className="d-flex justify-content-center gap-2">
                                                                 <Button variant="warning" size="sm" onClick={() => abrirModalEditar(deporte)}>
                                                                     <i className="fas fa-edit"></i>

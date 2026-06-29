@@ -18,6 +18,7 @@ import AdminDashboard from "../pages/admin/AdminDashboard"
 import ProtectedRoute from "./ProtectedRoutes"
 import UsersPage from "../pages/admin/UsersPage.jsx";
 import SportsManagement from "../pages/admin/SportManagment.jsx";
+import UserProfile from "../pages/user/UserProfile.jsx"
 
 function AppRoutes() {
     return (
@@ -32,12 +33,14 @@ function AppRoutes() {
                 <Route element={<ProtectedRoute rolPermitido="user" />}>
                     <Route path="/user" element={<UserLayout />}>
                         <Route path="dashboard" element={<UserDashboard />} />
+                        <Route path="perfil" element={<UserProfile />} />
                     </Route>
                 </Route>
 
                 <Route element={<ProtectedRoute rolPermitido="coach" />}>
                     <Route path="/coach" element={<CoachLayout />}>
                         <Route path="dashboard" element={<CoachDashboard />} />
+                        <Route path="perfil" element={<CoachDashboard />} />
                     </Route>
                 </Route>
 
@@ -46,6 +49,7 @@ function AppRoutes() {
                         <Route path="dashboard" element={<AdminDashboard />} />
                         <Route path="gestion" element={<UsersPage />} />
                         <Route path = "deportes" element ={<SportsManagement />} />
+                        <Route path="perfil" element={<AdminDashboard />} />
                     </Route>
                 </Route>
 

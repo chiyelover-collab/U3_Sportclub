@@ -49,7 +49,7 @@ const Navbar = () => {
                             </li>
                         </ul>
                         <div className="d-flex me-3 gap-2">
-                            <button onClick={() => navigate("/edit-profile")} className="btn btn-primary" type="button">
+                            <button onClick={() => navigate("/user/perfil")} className="btn btn-primary" type="button">
                                 Editar Perfil
                             </button>
                             <button onClick={handleLogout} className="btn btn-danger" type="button">

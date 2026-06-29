@@ -1,6 +1,6 @@
 
 const API_URL = "http://localhost:3000/api/users"; 
-const SPORTS_API_URL = "http://localhost:3000/api/sport";
+const SPORTS_API_URL = "http://localhost:3000/api/sports";
 
 
 function getToken() {
